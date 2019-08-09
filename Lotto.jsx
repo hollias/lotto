@@ -46,6 +46,16 @@ const Lotto = () => {
         }   //return은 componentWillUnmount와 같음
     }, [timeout.current]);  //useEffect의 두번째인자가 []이면 componentDidMount와 같음
     //useEffect의 두번째인자가 있으면 componentDidMount와 componentDidUpdate 수행
+
+    // const mounted = useRef(false);
+    // useEffect(() => {
+    //     if(!mounted.current){
+    //         mounted.current = true;
+    //     }else{
+    //         //Ajax호출
+    //     }
+    // }, [바뀌는값]); //componentDidUpdate에서만 호출하고싶을때 (componentDidMount는 X)
+
     const onClickRedo = useCallback(() => {
         console.log('onClickRedo')
         setWinNumbers(getWinNumber());
@@ -54,7 +64,7 @@ const Lotto = () => {
         setRedo(false);
       
         timeout.current = [];
-    }, []);
+    }, []); //useCallback은 함수자체를 기억한다.
 
     return (
         <>
