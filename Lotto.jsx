@@ -16,6 +16,7 @@ function getWinNumber(){
 }
 
 const Lotto = () => {
+    //훅스는 조건문안에 넣으면 안된다. (무조건 최상위)
     const lottoNumbers = useMemo(() => getWinNumber(), []); //복잡한 함수의 결과값을 기억
     const [winNumbers, setWinNumbers] = useState(lottoNumbers);
     const [winBalls, setWinBalls] = useState([]);
